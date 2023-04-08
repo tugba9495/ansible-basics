@@ -1,8 +1,15 @@
----
-  - name: add a file
-    hosts: localhost
-    tasks:
-      - name: add a file
-        file:
-          path: /tmp/tugba
-          state: touch
+- name: Add lines to a file
+  hosts: localhost
+  tasks:
+    - name: Create file
+      file:
+        path: /tmp/file2
+        state: touch
+
+    - name: Add lines to file
+      lineinfile:
+        path: /tmp/file2
+        line: "{{ item }}"
+      with_items:
+        - "This is line 1"
+        - "This is line 2"
