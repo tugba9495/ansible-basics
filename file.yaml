@@ -1,10 +1,7 @@
 - name: Add lines to a file
   hosts: localhost
   tasks:
-    - name: Create file
-      file:
-        path: /tmp/file2
-        state: touch
+    
 
     - name: Add lines to file
       lineinfile:
