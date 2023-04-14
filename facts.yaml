@@ -1,0 +1,9 @@
+---
+  - name: gather server facts
+    hosts: dev
+    gather_facts: yes
+    tasks:
+      - name: print facts
+        debug:
+          var: ansible_distribution
+          

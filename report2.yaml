@@ -1,0 +1,18 @@
+- name: do tasks
+  hosts: 10.108.0.3
+  tasks:
+    - name: run hostnamectl
+      command: hostnamectl
+      register: myoutput1
+    - name: get free memory
+      command: free -h
+      register: myoutput2
+    - name: check disk
+      command: df -h
+      register: myoutput3
+    - name: print outputs
+      debug:
+        msg:
+        - "{{ myoutput1.stdout }}"
+        - "{{ myoutput2.stdout }}"
+        - "{{ myoutput3.stdout }}"
